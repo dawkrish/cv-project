@@ -18,19 +18,30 @@ class Work {
   }
 }
 
+class Education {
+  constructor(id) {
+    this.id = id
+    this.course = "";
+    this.institute= "";
+    this.from = "";
+    this.to = "";
+    this.description = "";
+  }
+}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       workComponents: [new Work(0)],
-      educationComponents: 1,
+      educationComponents: [new Education(0)],
     };
 
     this.handleAddWork = this.handleAddWork.bind(this);
     this.handleWorkDelete = this.handleWorkDelete.bind(this);
     this.handleChange = this.handleChange.bind(this)
     this.handleAddEducation = this.handleAddEducation.bind(this);
+    this.handleEducationDelete = this.handleEducationDelete.bind(this)
   }
 
   handleAddWork() {
@@ -46,12 +57,25 @@ class App extends React.Component {
     }));
   }
 
+  handleAddEducation() {
+    let latest_id = this.state.educationComponents[this.state.educationComponents.length - 1].id
+    this.setState((prevState) => ({
+      educationComponents: [...prevState.educationComponents, new Education( latest_id + 1 )],
+    }));
+  }
+
+
+  handleEducationDelete(val){
+    this.setState((prevState) => ({
+      educationComponents: prevState.educationComponents.filter((item) => item !== val),
+    }));
+  }
+
   handleChange(e, inputComponent,index,param){
     inputComponent.props.components[index][param] = e.target.value
     console.log(this.state.workComponents)
   }
 
-  handleAddEducation() {}
 
   render() {
     return (
@@ -78,7 +102,12 @@ class App extends React.Component {
           <Heading size={"lg"} padding={1}>
             Education
           </Heading>
-          <EducationComponent />
+          <EducationComponent 
+           components={this.state.educationComponents}
+           handleEducationDelete={this.handleEducationDelete}
+           handleChange={this.handleChange}
+          
+          />
           <Button onClick={this.handleAddEducation}>Add</Button>
         </div>
 
