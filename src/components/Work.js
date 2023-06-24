@@ -23,7 +23,7 @@ class WorkComponent extends React.Component {
                 <Input
                   placeholder="A software company"
                   size={"sm"}
-                  // value={component.company}
+              defaultValue={"Monkeytype"}
                   onChange={(e) =>
                     this.props.handleChange(e, this, i, "company")
                   }
@@ -31,25 +31,26 @@ class WorkComponent extends React.Component {
                 <Input
                   placeholder="Role"
                   size={"sm"}
+                  defaultValue={"Backend Developer"}
                   // value={component.role}
                   onChange={(e) => this.props.handleChange(e, this, i, "role")}
                 />
                 <Input
                   placeholder="From"
                   size={"sm"}
-                  // value={component.from}
+                  defaultValue={"2018"}
                   onChange={(e) => this.props.handleChange(e, this, i, "from")}
                 />
                 <Input
                   placeholder="To"
                   size={"sm"}
-                  // value={component.to}
+                  defaultValue={"2022"}
                   onChange={(e) => this.props.handleChange(e, this, i, "to")}
                 />
                 <Textarea
                   placeholder="Description"
                   size={"sm"}
-                  // value={component.description}
+                  defaultValue={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, similique."}
                   onChange={(e) =>
                     this.props.handleChange(e, this, i, "description")
                   }
