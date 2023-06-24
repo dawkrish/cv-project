@@ -11,7 +11,7 @@ class PreviewComponent extends React.Component {
       <div id="preview-main">
         <div id="preview-header">
           <div>
-            <Text fontSize={"3xl"} as={"b"} color={"red.600"}>
+            <Text fontSize={"3xl"} as={"b"} color={"black.600"}>
               {generalComponent.name.toUpperCase()}
             </Text>
             <Text fontSize={"xl"}>{generalComponent.role}</Text>
